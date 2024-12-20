@@ -111,6 +111,7 @@ function getBotReply(message) {
       { keywords: ["course"], reply: "We offer a wide range of courses including Web Development, Data Science, Networking, Computer application packages and more. Is there any specific course you would like me to tell you more about?" },
       { keywords: ["Web development", "web design", "web"], reply: "In web development, MTS offer a wide coverage on Front-end web development, Back-end web development and Full-stack web development using Modern fromeworks like Node.js, Django, Javascript, Bootsrap and many more." },
       { keywords: ["course", "Register" , "registration"], reply: "To register a course, first you need to create an account at MTS. Then log in to your account, in your account chose any course of your choice and it will lead you to a registration page." },
+      { keywords: ["service", "services"], reply: "We offer a number of online services at MTS. Some of the services offered include: All cyber services, IT support services, maintanance & troubleshooting services and many more." },
       { keywords: ["location"], reply: "We are located at Ongata Rongai, Nairobi, Kenya. Would you like directions?" },
       { keywords: ["know", "more", "mts"], reply: "MTS is an online technology space founded by Jared Mackachila in the year 2023. MTS offers several online course and services. ?" },
       { keywords: ["name"], reply: "I'm not sure about your name but I guess you are someone who is interested in learning new things. Do you have any question about MTS?" },
