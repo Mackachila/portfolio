@@ -530,10 +530,11 @@ a {
       display: block;
   }
   .navbar-logo {
-     font-size: 2rem;
-   /* font-weight: bold; */
+     font-size: 1.8rem;
+   letter-spacing: 0.3rem;
     
-    margin-left: 20px; 
+    margin-left: 1px; 
+  }
   }
 
   .navbar {
