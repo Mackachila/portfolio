@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Identity Verification with Face Recognition</title>
+  <link rel="stylesheet" href="kyc.css">
+</head>
+<body>
+
+  <div id="login-container">
+    <h1>Login</h1>
+    <input type="email" id="email" placeholder="Enter Email" required />
+    <input type="password" id="password" placeholder="Enter Password" required />
+    <button onclick="login()">Login</button>
+    <p>Don't have an account? <a href="#" onclick="showSignUp()">Sign up</a></p>
+  </div>
+
+  <div id="signup-container" style="display: none;">
+    <h1>Sign Up</h1>
+    <input type="email" id="signup-email" placeholder="Enter Email" required />
+    <input type="password" id="signup-password" placeholder="Enter Password" required />
+    <button onclick="register()">Register</button>
+    <button onclick="showLogin()">Back to Login</button>
+
+    <h2>Capture Your Face</h2>
+    <video id="video" width="100%" height="auto" autoplay></video>
+    <canvas id="canvas" style="display: none;"></canvas>
+    <button onclick="captureFace()">Capture Face</button>
+
+    <div class="camera-controls">
+      <button onclick="switchCamera()">Switch Camera</button>
+      <button onclick="stopCamera()">Stop Camera</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+  <script src="kyc.js"></script>
+</body>
+</html>

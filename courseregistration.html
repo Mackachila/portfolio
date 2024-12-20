@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- you need to what we do we ackn jared loading-overlay -->
+<!-- live -->
+    <title>account</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="coursesuccess.css">
+
+    
+</head>
+<body>
+  <div id="notifications" style="position: fixed; top: 10px; right: 10px; z-index: 1200;"></div>
+
+<button id="scrollToTopBtn" class="scroll-to-top-btn" onclick="scrollToTop()">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+    <path d="M12 5l7 7h-4v8h-6v-8h-4z" fill="white"/>
+  </svg>
+</button>
+<div id="registration-card" class="hidden">
+  <div class="card-content">
+    <h1>You need to register for this course first.</h1>
+    <button id="register-btn" onclick="payment()">Register Now</button>
+    <button id="close-btn" style="background-color: brown;" onclick="closeall()">Cancel</button><br><br>
+    <div class="coursepaymant" id="coursepaymant">
+      <h1>Price KES. 3000. Duration: 2 Months</h1>
+      <p>You need to pay at least KES. 1000 to begin classes.You need to clear any of your balances before you complete the course.</p>
+      <button style="background-color: #0056b3;" >Pay with M-PESA</button>
+      <button id="close-btn2" style="background-color: brown;" onclick="closeall()">Cancel</button><br><br>
+      <!-- <button style="background-color: #0056b3;">Pay via PayPal</button>
+      <button style="background-color: orangered;">Pay with Card</button> -->
+    </div>
+  </div>
+</div>
+
+
+    <div id="scrollProgress"></div>
+
+
+   <!-- Navbar div id="notifications" -->
+    <nav class="navbar">
+        <!-- <img src="mtslogo3.png" alt="MTS" class="navbar-logo"> -->
+        <div class="navbar-logo">MTS</div>
+        <ul class="navbar-links">
+            <li class="dropdown">
+                <a href="dashboard.html">Dashboard</a>
+                <!-- <ul class="dropdown-menu" id="registration-dropdown">
+                  <li><a href="#" data-course="Front-End web design classes">Front-End web design classes</a></li>
+                  <li><a href="#" data-course="Back-End web Skills">Back-End web Skills</a></li>
+                  <li><a href="#" data-course="Full-Stack web development">Full-Stack web development</a></li>
+                  <li><a href="#" data-course="Software Engineering classes">Software Engineering classes</a></li>
+                  <li><a href="#" data-course="Computer Packages Classes">Computer Packages Classes</a></li>
+                  <li><a href="#" data-course="Cyber attendant Classes">Cyber attendant Classes</a></li>
+                </ul> -->
+            </li>
+            <li><a href="#">Web design</a></li>
+            <li><a href="#">Software Engeneering</a></li>
+            <li><a href="#contact-section">Cyber</a></li>
+                        <li>
+                <a href="#" id="signupbutton" style="background-color: lightgray; border-radius: 30px; padding: 10px; color: lightseagreen;">Join Class</a>
+            </li>
+            
+        </ul>
+        
+        <button id="toggleDashboard" class="dashboard-toggle">☰</button>
+    </nav>
+
+    <!-- Overlay for mobile view -->
+    <div id="overlay" class="overlay"></div>
+    <div id="loading-overlay" class="loading-overlay" style="color: white;">Please wait...
+      <div class="spinner"></div>
+    </div>
+    <!-- Information Dashboard -->
+    <!-- Information Dashboard -->
+<aside id="dashboard" class="dashboard">
+    <button id="closeDashboard" class="close-button" style="color: black;">X</button>
+    
+    <div class="dashboard-title">
+        <!-- <img src="user6.png" alt="Profile" class="title-profile-image"> -->
+        <img src="user6.png" alt="Profile" class="title-profile-image" id="thumbnailImage" style="cursor: pointer;">
+        <h1 class="dashboard-heading" id="dashboard-heading">Loading...</h1>
+        <button class="logout" id="logout"><i class="fas fa-power-off" style="color: red;"></i> Log Out</button>
+      </div><br>
+    <!-- New Close Button
+    <img src="user6.png" alt="Profile" class="profile-image"> -->
+    
+    <div class="dashboard-content">
+           
+        <!-- Skills Section -->
+        <div class="section">
+          <div class="services" id="services">
+                <button class="section2-toggle" id="toggleServices">
+                    <i class="fas fa-code"></i>Classes <span class="arrow">▼</span>
+                </button>
+                <div class="section-content" id="servicesContent" style="background-color: whitesmoke;">
+                    <li><a href="#">Front-End web design classes</a></li>
+                    <li><a href="#">Back-End web Skills</a></li>
+                    <li><a href="#">Full-Stack web development </a></li>
+                    <li><a href="#">Software Engineering classes</a></li>
+                    <li><a href="#">Computer Packages Classes</a></li>
+                    <li><a href="#">Cyber attendant Classes</a></li>
+                </div>
+
+                <div class="section">
+                    <a href="#"><button class="section2-toggle" id="toggleskillssection">
+                        <i class="fas fa-phone-alt"></i> Web Design
+                    </button></a>
+                    </div>
+                <div class="section">
+                    <a href="#"><button class="section2-toggle" id="toggleprojectsection">
+                        <i class="fas fa-phone-alt"></i> Software Engineering
+                    </button></a>
+                    </div>
+                
+                <div class="section">
+                    <a href="#"><button class="section2-toggle" id="toggleaboutsection">
+                        <i class="fas fa-phone-alt"></i> Cyber
+                    </button></a>
+                    </div>
+                    <br>
+            <h2 style="color: black; font-size: large;">Your info</h2>
+        </div>
+            <button class="section-toggle" id="toggleSkills">
+                <i class="fas fa-code"></i> Registered Courses <span class="arrow">▼</span>
+            </button>
+            <div class="section-content" id="skillsContent">
+                <p>Loading...</p>
+            </div>
+        
+    
+        <!-- Contact Section -->
+        <div class="section">
+            <button class="section-toggle" id="toggleContact">
+                <i class="fas fa-phone-alt"></i> Contact <span class="arrow">▼</span>
+            </button>
+            <div class="section-content" id="contactContent">
+                <p>Loading...</p>
+            </div>
+        </div>
+    
+        <!-- Email Section -->
+        <div class="section">
+            <button class="section-toggle" id="toggleEmail">
+                <i class="fas fa-envelope"></i> Email <span class="arrow">▼</span>
+            </button>
+            <div class="section-content" id="emailContent">
+                <p>Loading...</p>
+            </div>
+        </div>
+<!-- LinkedIn -->
+        <div class="section">
+            <button class="section-toggle" id="togglelinkedin">
+                <i class="fab fa-linkedin"></i> Completed Courses <span class="arrow">▼</span>
+            </button>
+            <div class="section-content" id="linkedinContent">
+                <p>Loading...</p>
+            </div>
+        </div>
+    <!-- GitHub -->
+        <div class="section">
+            <button class="section-toggle" id="togglegithub">
+                <i class="fab fa-github"></i> Pending Services <span class="arrow">▼</span>
+            </button>
+            <div class="section-content" id="githubContent">
+                <p>Loading...</p>
+            </div>
+        </div>
+        <!-- Abilities Section -->
+        <div class="section">
+            <button class="section-toggle" id="toggleAbilities">
+                <i class="fas fa-cogs"></i> Certificates <span class="arrow">▼</span>
+            </button>
+            <div class="section-content" id="abilitiesContent">
+                <p>Loading...</p>
+            </div>
+           
+        </div>
+    </div>
+    
+    
+</aside>
+
+
+    <!-- Main Content -->
+    <main class="content"><br><br>
+        <section id="home"><br>
+            <form id="courseregistration_form">
+              <h2 id="registrationtitle" style="color: #0d4883;">Course Registration</h2>
+                <p>Dear <b id="registee"></b>, we acknowledge your interest in the  <b class="selectedcourse" id="selectedcourse"></b> course. This course costs KES. <span id="courseprice"></span>.  Please select it below to register for it.</p>
+                <div class="form-group">
+                  <!-- <label for="student_name">Full Name</label>
+                  <input type="text" id="student_name" name="student_name" placeholder="Enter your full name" required> -->
+                </div>
+                <div class="form-group">
+                  <label for="course_selection"><b style="color: red">Note:</b> Course registration is free but you need to pay the tution fee to join classes.</label>
+                  <select id="course_selection" name="course_selection" required>
+                    <option value="" disabled selected>Select a course</option>
+                    <option value="Front-End web design"> Front-End web design</option>
+                    <option value="Back-End web Skills">Back-End Web Skills</option>
+                    <option value="Full-Stack web development">Full-Stack Web Development</option>
+                    <option value="Software Engineering classes">Software Engineering Classes</option>
+                    <option value="Computer Packages Classes">Computer Packages Classes</option>
+                    <option value="Cyber attendant Classes">Cyber Attendant Classes</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <input type="submit" id="submit_button" value="Register" style="background-color: #0d4883;">
+                </div>
+              </form>
+        </section>
+
+
+        <section class="contact-section" id="contact-section">
+            <div class="contact-container">
+              <div class="contact-header">
+                <h2>Contact Us</h2>
+                <p>Let's create something amazing together!</p>
+              </div>
+              <form class="contact-form">
+                <div class="input-group">
+                  <input type="text" id="name" placeholder="Name" required>
+                  <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="submit-button">
+                  <span>Send Message</span>
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </form>
+            </div>
+          </section>
+          
+
+        <section class="chat-section">
+            <div class="chat-button" id="chatButton">
+                <i class="fa fa-comments"></i> Get Help
+            </div>
+            <div class="chat-window" id="chatWindow">
+                <div class="chat-header">
+                    <h3>Mackachila Chat Bot</h3>
+                    <button id="closeChat" class="close-chat-btn">&times;</button>
+                </div>
+                <div class="chat-body">
+                    <div class="chat-message left">
+                        <div class="chat-bubble">
+                            <p>Hello! I am just but a chat Bot Build by Jared Mackachila, I may not be able to answer all your questions correctly but I will try my best. How can I assist you today?</p>
+                        </div>
+                    </div>
+                    <!-- User and support messages will appear here -->
+                </div>
+                <div class="chat-footer">
+                    <input type="text" id="chatInput" placeholder="Type your message..." />
+                    <button id="sendChat" class="send-chat-btn">
+                        <i class="fa fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- Additional sections like About, Projects, Blog, etc. -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+          <div class="footer-column">
+            <h3>About Mackachila</h3>
+            <p>Mackachila (Real name: Jared Odhiambo) is an experienced Full-Stack web developer and a programmer who has vast knowlege in so many languages including: Java, JavaScript, Python, Node.js, React.js, SQL, Visual Basic, CSS, HTML and good knowledge in Database systems.</p>
+          </div>
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#courses">Projects</a></li>
+              <li><a href="#admissions">Qualifications</a></li>
+              <li><a href="#contact">Abilities</a></li>
+              <li><a href="#blog">About</a></li>
+              <li><a href="#events">Contact</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Services</h3>
+            <ul class="footer-links">
+              <li><a href="#l">Web Development</a></li>
+              <li><a href="#l">Software Engineering</a></li>
+              <li><a href="#l">Networking</a></li>
+              <li><a href="#l">Cyber Security</a></li>
+              <li><a href="#l">Computer Training</a></li>
+              <li><a href="#l">IT Support</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Search the Site</h3>
+            <form class="footer-search-form">
+              <input type="text" class="footer-search-input" placeholder="Search..." aria-label="Search">
+              <button type="submit" class="footer-search-button"><i class="fas fa-search"></i></button>
+            </form>
+            <h3>Follow Us</h3>
+            <ul class="social-media-links">
+              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+              <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+              <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Jared Mackachila. All Rights Reserved.</p>
+        </div>
+      </footer>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="courseregistration.js"></script>
+<script>
+    
+// Function to get URL parameters overlay
+function getUrlParameter(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+// When the page loads
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Get the course name from the URL
+  const courseName = getUrlParameter("course");
+
+  // Ensure courseName exists
+  if (courseName) {
+    // Get the selected course div
+    const selectedCourseDiv = document.getElementById("selectedcourse");
+
+    // Update the div content
+    if (selectedCourseDiv) {
+      selectedCourseDiv.textContent = decodeURIComponent(courseName);
+    } else {
+      console.error("Div with ID 'selectedcourse' not found!");
+    }
+  } else {
+    console.warn("No course name found in the URL parameters.");
+  }
+
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+   const selectedCourse = document.getElementById("selectedcourse").textContent;
+   if(selectedCourse =="Front-End web design"){
+    document.getElementById("courseprice").textContent = "1,000/ month and the course lasts for 2 months. To begin your classes, you need to pay a minimum of KES.1,000"
+   }
+   else if(selectedCourse =="Back-End web development"){
+    document.getElementById("courseprice").textContent = "1000/ month and the course lasts for 3 months. To begin your classes, you need to pay a minimum of KES.1000"
+   }
+   else if(selectedCourse =="Full-Stack web development"){
+    document.getElementById("courseprice").textContent = "1,500/ month and the course lasts for 5 months. To begin your classes, you need to pay a minimum of KES.1,500"
+   }
+
+   else if(selectedCourse =="Software Engineering"){
+    document.getElementById("courseprice").textContent = "2,000/ month and the course lasts for 5 months. To begin your classes, you need to pay a minimum of KES.2,000"
+   }
+
+   else if(selectedCourse =="Computer Packages"){
+    document.getElementById("courseprice").textContent = "1,500/ month and the course lasts for 2 months. To begin your classes, you need to pay a minimum of KES.1,000"
+   }
+
+   
+   else if(selectedCourse =="Cyber attendant"){
+    document.getElementById("courseprice").textContent = "300/ week and the course lasts for 5 weeks. To begin your classes, you need to pay a minimum of KES.500"
+   }
+});
+
+
+
+// const form = document.getElementById("courseregistration_form");
+//   const notifications = document.getElementById("notifications");
+
+//   form.addEventListener("submit", async (event) => {
+//     event.preventDefault();
+
+//     // Get selected course
+//     const courseSelection = document.getElementById("course_selection").value;
+
+//     if (!courseSelection) {
+//       showNotification("Please select a course!", "error");
+//       return;
+//     }
+
+//     // Confirmation dialog
+//     const confirmation = window.confirm(`Are you sure you want to register for the "${courseSelection}" course?`);
+//     if (!confirmation) return;
+
+//     try {
+//       // Send registration request to the server
+//       const response = await fetch("/register-course", {
+//         method: "POST",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify({ course: courseSelection }),
+//       });
+
+//       const result = await response.json();
+
+//       if (result.success) {
+//         showNotification("Course successfully registered!", "success");
+//       } else {
+//         showNotification(result.message, "error");
+//       }
+//     } catch (error) {
+//       console.error("Registration error:", error);
+//       showNotification("An unexpected error occurred. Please try again.", "error");
+//     }
+//   });
+
+//   function showNotification(message, type) {
+//     const notification = document.createElement("div");
+//     notification.className = `notification ${type}`;
+//     notification.textContent = message;
+
+//     notifications.appendChild(notification);
+
+//     setTimeout(() => {
+//       notification.remove();
+//     }, 5000); // Remove after 5 seconds
+//   }
+
+
+// form.addEventListener("submit", async (event) => {
+//   event.preventDefault();
+
+//   const courseSelection = document.getElementById("course_selection").value;
+
+//   if (!courseSelection) {
+//     showNotification("Please select a course!", "error");
+//     return;
+//   }
+
+//   const confirmation = window.confirm(`Are you sure you want to register for the "${courseSelection}" course?`);
+//   if (!confirmation) return;
+
+//   try {
+//     const response = await fetch("/register-course", {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify({ course: courseSelection }),
+//     });
+
+//     const result = await response.json();
+
+//     if (response.ok) {
+//       showNotification(result.message || "Course successfully registered!", "success");
+//     } else {
+//       showNotification(result.message || "An error occurred.", "error");
+//     }
+//   } catch (error) {
+//     console.error("Registration error:", error);
+//     showNotification("An unexpected error occurred. Please try again.", "error");
+//   }
+// });
+
+// function showNotification(message = "An error occurred.", type) {
+//   const notification = document.createElement("div");
+//   notification.className = `notification ${type}`;
+//   notification.textContent = message;
+
+//   notifications.appendChild(notification);
+
+//   setTimeout(() => {
+//     notification.remove();
+//   }, 5000); // Remove after 5 seconds
+// }
+
+</script>
+    
+</body>
+</html>

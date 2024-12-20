@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account creation</title>
+    <link rel="stylesheet" href="register.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div id="notifications" style="position: fixed; top: 10px; right: 10px; z-index: 1000;"></div>
+    <div class="container"><br><br>
+      <h1>MTS</h1><br>
+      <p>We just sent you an email with a verification link. Please check your email to activate your account. You need to verify your email to log in.</p><br>
+      
+      <a href="login.html" style="color: yellow; text-decoration: none; font-size: large;"> Login</a>
+             
+
+   
+    <footer>
+      <div class="footer-bottom">
+        <p>&copy; 2024 MTS. All Rights Reserved.</p>
+      </div>
+    </footer>
+    <script src="loginvalidation.js"></script>
+    <script>
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const icon = input.nextElementSibling;
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+    </script>
+</body>
+</html>
