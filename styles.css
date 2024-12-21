@@ -1,4 +1,4 @@
-/* dashboard title-chat-carousel-navbar-section-border-ad-about-us-section*/
+/* contact-header title-chat-carousel-navbar-section-border-ad-about-us-navbar-logo*/
 * {
   margin: 0;
   padding: 0;
@@ -534,7 +534,6 @@ a {
    letter-spacing: 0.3rem;
     
     margin-left: 1px; 
-  }
   }
 
   .navbar {
@@ -1217,7 +1216,7 @@ a {
 .contact-header h2 {
   margin-bottom: 10px;
   font-size: 28px;
-  color: #f4b400;
+  color: lightseagreen;
   text-align: center;
 }
 
@@ -1262,7 +1261,7 @@ a {
   align-items: center;
   width: 100%;
   padding: 12px;
-  background-color: #f4b400;
+  background-color: lightseagreen;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -1278,7 +1277,8 @@ a {
 }
 
 .submit-button:hover {
-  background-color: #e09f00;
+  background-color: rgb(6, 52, 50);
+  color: white;
 }
 
 /* Responsive Design */
@@ -1822,8 +1822,8 @@ a {
 }
 
 #thirdsectiontitle {
-  font-size: 2.5em;
-  color: whitesmoke;
+  font-size: 1.5em;
+  color: lightseagreen;
   margin-bottom: 20px;
 }
 
@@ -2006,7 +2006,3 @@ a {
    
   }
 }
-
-
-
-
